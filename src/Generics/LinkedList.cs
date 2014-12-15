@@ -5,41 +5,50 @@ namespace Generics {
    public class LinkedList<T>: IEnumerable<T> {
       private int _size;
       private Node<T> _head;
-      private Node<T> _current;
+      private Node<T> _tail;
 
       public LinkedList() {
          _size = 0;
          _head = null;
       }
 
-      public void Insert( T content ) {
-         var node = CreateNode( content );
+      public void Insert( T data ) {
+         var node = CreateNode( data );
          node.Next = _head;
          _head = node;
       }
 
-      public void Add( T content ) {
-         var node = CreateNode( content );
+      public void Add( T data ) {
+         var node = CreateNode( data );
 
          if ( _head == null ) {
             _head = node;
          } else {
-            _current.Next = node;
+            _tail.Next = node;
          }
 
-         _current = node;
+         _tail = node;
       }
 
-      private Node<T> CreateNode( T content ) {
+      private Node<T> CreateNode( T data ) {
          _size++;
          return new Node<T> {
-            Data = content
+            Data = data
          };
       }
 
-
       public int Count {
          get { return _size; }
+      }
+
+      public T Last {
+         get {
+            T result = default( T );
+            if ( _tail != null ) {
+               result = _tail.Data;
+            }
+            return result;
+         }
       }
 
       public IEnumerator<T> GetEnumerator() {
