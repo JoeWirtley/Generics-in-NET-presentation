@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace Generics {
-   public class LinkedList<T> {
+   public class LinkedList<T>: IEnumerable<T> {
       private int _size;
       private Node<T> _head;
       private Node<T> _current;
@@ -11,12 +12,14 @@ namespace Generics {
          _head = null;
       }
 
-      public void Add( T content ) {
-         _size++;
+      public void Insert( T content ) {
+         var node = CreateNode( content );
+         node.Next = _head;
+         _head = node;
+      }
 
-         var node = new Node<T> {
-            Data = content
-         };
+      public void Add( T content ) {
+         var node = CreateNode( content );
 
          if ( _head == null ) {
             _head = node;
@@ -25,6 +28,13 @@ namespace Generics {
          }
 
          _current = node;
+      }
+
+      private Node<T> CreateNode( T content ) {
+         _size++;
+         return new Node<T> {
+            Data = content
+         };
       }
 
 
@@ -41,9 +51,14 @@ namespace Generics {
          }
       }
 
+      IEnumerator IEnumerable.GetEnumerator() {
+         return GetEnumerator();
+      }
+
       private class Node<T> {
          public T Data;
          public Node<T> Next;
       }
+
    }
 }
