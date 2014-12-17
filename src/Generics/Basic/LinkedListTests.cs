@@ -1,4 +1,6 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
+using Generics.Basic;
 using NUnit.Framework;
 
 namespace Generics.Test {
@@ -37,15 +39,53 @@ namespace Generics.Test {
       }
 
       [Test]
-      public void TestLastOnEmptyIntList() {
+      public void TestLastOnIntList() {
          LinkedList<int> list = new LinkedList<int>();
          list.Last.Should().Be( 0 );
+
+         list.Add( 42 );
+         list.Last.Should().Be( 42 );
       }
 
       [Test]
-      public void TestLastOnEmptyObjectList() {
+      public void TestLastOnObjectList() {
          LinkedList<object> list = new LinkedList<object>();
          list.Last.Should().BeNull();
+
+         var data = new object();
+         list.Add( data );
+         list.Last.Should().Be( data );
+      }
+
+      [Test]
+      public void TestFirstOnIntList() {
+         LinkedList<int> list = new LinkedList<int>();
+         list.First.Should().Be( 0 );
+
+         list.Add( 42  );
+         list.First.Should().Be( 42 );
+      }
+
+      [Test]
+      public void TestFirstOnObjectList() {
+         LinkedList<object> list = new LinkedList<object>();
+         list.First.Should().BeNull();
+
+         var data = new object();
+         list.Add( data  );
+         list.First.Should().Be( data );
+      }
+
+      [Test]
+      public void TestIndexOfData() {
+         LinkedList<int> list = new LinkedList<int>( 1, 2, 3, 4, 5, 6 );
+
+         list.DataWhere( value => value < 4 ).Should()
+            .NotBeEmpty().And
+            .HaveCount( 3  ).And
+            .Equal( 1, 2, 3 );
+
+         list.DataWhere( value => value > 6 ).Should().BeEmpty(  );
       }
    }
 }

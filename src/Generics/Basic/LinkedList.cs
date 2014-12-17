@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace Generics {
+namespace Generics.Basic {
    public class LinkedList<T>: IEnumerable<T> {
       private int _size;
       private Node<T> _head;
@@ -10,6 +12,12 @@ namespace Generics {
       public LinkedList() {
          _size = 0;
          _head = null;
+      }
+
+      public LinkedList( params T[] values): this() {
+         foreach ( var value in values ) {
+            Add( value  );
+         }
       }
 
       public void Insert( T data ) {
@@ -41,14 +49,24 @@ namespace Generics {
          get { return _size; }
       }
 
+      public T First {
+         get { return DataFromNode( _head ); }
+      }
+
       public T Last {
-         get {
-            T result = default( T );
-            if ( _tail != null ) {
-               result = _tail.Data;
-            }
-            return result;
+         get { return DataFromNode( _tail ); }
+      }
+
+      private T DataFromNode( Node<T> node ) {
+         T result = default( T );
+         if ( node != null ) {
+            result = node.Data;
          }
+         return result;
+      }
+
+      public IEnumerable<T> DataWhere( Func<T, bool> criteria ) {
+         return this.Where( criteria );
       }
 
       public IEnumerator<T> GetEnumerator() {
@@ -64,10 +82,9 @@ namespace Generics {
          return GetEnumerator();
       }
 
-      private class Node<T> {
-         public T Data;
-         public Node<T> Next;
+      private class Node<TData> {
+         public TData Data;
+         public Node<TData> Next;
       }
-
    }
 }

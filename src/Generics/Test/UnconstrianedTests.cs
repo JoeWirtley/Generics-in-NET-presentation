@@ -3,12 +3,18 @@ using NUnit.Framework;
 
 namespace Generics.Test {
    [TestFixture]
-   public class UnboundedTests {
+   public class UnconstrianedTests {
       [Test]
       public void CanUseEqualOperatorWithClassConstraint() {
          object value = new object();
          AreEqualReferenceTypes( value, new object() ).Should().BeFalse();
          AreEqualReferenceTypes( value, value ).Should().BeTrue();
+      }
+
+      [Ignore]
+      [Test]
+      public void EqualOperatorWithStringMayNotWorkAsExpected() {
+         AreEqualReferenceTypes( "foo", "foo" ).Should().BeFalse();
       }
 
       private bool AreEqualReferenceTypes< T >( T first, T second ) where T : class {
@@ -20,6 +26,7 @@ namespace Generics.Test {
          object value = new object();
          AreEqual( value, new object() ).Should().BeFalse();
          AreEqual( value, value ).Should().BeTrue();
+         AreEqual( "foo", "foo" ).Should().BeTrue();
 
          AreEqual( 3, 3 ).Should().BeTrue();
       }
