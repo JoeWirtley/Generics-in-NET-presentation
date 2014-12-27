@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Generics.Basic;
 using NUnit.Framework;
 
@@ -62,7 +61,7 @@ namespace Generics.Test {
          LinkedList<int> list = new LinkedList<int>();
          list.First.Should().Be( 0 );
 
-         list.Add( 42  );
+         list.Add( 42 );
          list.First.Should().Be( 42 );
       }
 
@@ -72,7 +71,7 @@ namespace Generics.Test {
          list.First.Should().BeNull();
 
          var data = new object();
-         list.Add( data  );
+         list.Add( data );
          list.First.Should().Be( data );
       }
 
@@ -82,10 +81,10 @@ namespace Generics.Test {
 
          list.DataWhere( value => value < 4 ).Should()
             .NotBeEmpty().And
-            .HaveCount( 3  ).And
+            .HaveCount( 3 ).And
             .Equal( 1, 2, 3 );
 
-         list.DataWhere( value => value > 6 ).Should().BeEmpty(  );
+         list.DataWhere( value => value > 6 ).Should().BeEmpty();
       }
    }
 }

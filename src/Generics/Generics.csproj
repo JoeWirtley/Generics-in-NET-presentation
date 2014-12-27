@@ -54,11 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Basic\SampleConstructs.cs" />
-    <Compile Include="Basic\GenericMethod.cs" />
+    <Compile Include="Basic\SwapValuesTests.cs" />
     <Compile Include="Basic\LinkedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Basic\LinkedListTests.cs" />
-    <Compile Include="Test\UnconstrianedTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace Generics.Test {
    [TestFixture]
-   public class UnconstrianedTests {
+   public class UnconstrainedTests {
       [Test]
       public void CanUseEqualOperatorWithClassConstraint() {
          object value = new object();

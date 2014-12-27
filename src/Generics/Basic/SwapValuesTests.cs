@@ -12,7 +12,7 @@ namespace Generics.Basic {
 
 
    [TestFixture]
-   public class LinkedListTests {
+   public class SwapValuesTests {
       [Test]
       public void TestSwapWithInteger() {
          int first = 23;
@@ -33,6 +33,20 @@ namespace Generics.Basic {
 
          first.Should().Be( "Judy" );
          second.Should().Be( "Nancy" );
+      }
+
+      [Test]
+      public void TestSwapWithObject() {
+         object first = new object();
+         object second = new object();
+
+         object saveFirst = first;
+         object saveSecond = second;
+
+         NonGenericClass.Swap( ref first, ref second );
+
+         first.Should().Be( saveSecond );
+         second.Should().Be( saveFirst );
       }
    }
 }
