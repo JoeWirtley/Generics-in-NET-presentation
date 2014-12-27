@@ -1,8 +1,7 @@
 ﻿using FluentAssertions;
-using Generics.Basic;
 using NUnit.Framework;
 
-namespace Generics.Test {
+namespace Generics.Basic {
    [TestFixture]
    public class LinkedListTests {
       [Test]

@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basic\EnumerableCastTests.cs" />
     <Compile Include="Basic\SampleConstructs.cs" />
     <Compile Include="Basic\SwapValuesTests.cs" />
     <Compile Include="Basic\LinkedList.cs" />
@@ -61,7 +62,7 @@
     <Compile Include="RealWorld\FinderTabs\Support.cs" />
     <Compile Include="RealWorld\FinderTabs\FinderTabs.cs" />
     <Compile Include="RealWorld\FinderTabs\ExampleUsage.cs" />
-    <Compile Include="Test\UnconstrainedTests.cs" />
+    <Compile Include="Basic\UnconstrainedTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

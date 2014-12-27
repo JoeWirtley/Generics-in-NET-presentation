@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
 
-namespace Generics.Test {
+namespace Generics.Basic {
    [TestFixture]
    public class UnconstrainedTests {
       [Test]
@@ -37,6 +37,7 @@ namespace Generics.Test {
 
       [Test]
       public void IsNullReturnsFalseForValueTypes() {
+         IsNull<object>( new object() ).Should().BeFalse();
          IsNull<object>( null ).Should().BeTrue();
          IsNull( 2 ).Should().BeFalse();
       }
@@ -49,7 +50,6 @@ namespace Generics.Test {
       public void CanConvertToInterface() {
          AsTest( new object() ).Should().BeNull();
          AsTest( new Test() ).Should().NotBeNull();
-
 
          AsTest( 3 ).Should().BeNull();
       }
