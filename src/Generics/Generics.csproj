@@ -58,6 +58,11 @@
     <Compile Include="Basic\LinkedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Basic\LinkedListTests.cs" />
+    <Compile Include="RealWorld\FinderTabs\FakePrism.cs" />
+    <Compile Include="RealWorld\FinderTabs\FinderTabs.cs" />
+    <Compile Include="RealWorld\FinderTabs\IFinderTabs.cs" />
+    <Compile Include="RealWorld\FinderTabs\ExampleUsage.cs" />
+    <Compile Include="Test\UnconstrainedTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
