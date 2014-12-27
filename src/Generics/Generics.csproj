@@ -59,6 +59,12 @@
     <Compile Include="Basic\LinkedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Basic\LinkedListTests.cs" />
+    <Compile Include="RealWorld\Filtering\Person.cs" />
+    <Compile Include="RealWorld\Filtering\PersonFilter.cs" />
+    <Compile Include="RealWorld\Filtering\PersonRepository.cs" />
+    <Compile Include="RealWorld\Filtering\Support.cs" />
+    <Compile Include="RealWorld\Filtering\FilteringTests.cs" />
+    <Compile Include="RealWorld\Filtering\WhereAndBuilder.cs" />
     <Compile Include="RealWorld\FinderTabs\Support.cs" />
     <Compile Include="RealWorld\FinderTabs\FinderTabs.cs" />
     <Compile Include="RealWorld\FinderTabs\ExampleUsage.cs" />
@@ -67,6 +73,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
