@@ -33,8 +33,6 @@
    }
 
 
-
-
    public class Bar {
    }
 
@@ -50,6 +48,30 @@
          Bar[] bars = {factory.CreateOne(), factory.CreateOne()};
       }
    }
+
+
+
+   public class Test {
+      public Test() {
+      }
+
+      public void SomeGenericMethod<T>( T someParameter ) {
+      }
+
+      public void TypeInferred() {
+         SomeGenericMethod( "Some String" );
+      }
+
+      public T AnotherGenericMethod<T>() where T: new() {
+         return new T();
+      }
+
+      public void NotInferred() {
+         Test value = AnotherGenericMethod<Test>();
+      }
+
+   }
+
    // ReSharper restore UnusedVariable
    // ReSharper restore EmptyConstructor
    // ReSharper restore UnusedTypeParameter
