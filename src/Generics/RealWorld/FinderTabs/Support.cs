@@ -1,9 +1,16 @@
-﻿// This file defines interfaces to stand in for Prism so that the FinderTabs examplw will compile.
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 
 namespace Generics.RealWorld.FinderTabs {
+   public interface IFinderTabs {
+      bool ActivateViewMeetingCondition<T>( Func<T, bool> condition, out T openChart ) where T:class;
+      bool ActivateViewMeetingCondition<T>( Func<T, bool> condition ) where T:class;
+      bool IsViewOpenMeetingCondition<T>( Func<T, bool> condition ) where T:class;
+   }
+
+   // These interfaces stand in for Prism so that the FinderTabs example will compile.
    public interface IRegion {
       void Activate( object view );
       void Add( object view, string toString, bool createRegionManagerScope );
