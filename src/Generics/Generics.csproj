@@ -69,6 +69,12 @@
     <Compile Include="RealWorld\FinderTabs\FinderTabs.cs" />
     <Compile Include="RealWorld\FinderTabs\ExampleUsage.cs" />
     <Compile Include="Basic\UnconstrainedTests.cs" />
+    <Compile Include="RealWorld\Serialization\Support\Invoice.cs" />
+    <Compile Include="RealWorld\Serialization\Support\Item.cs" />
+    <Compile Include="RealWorld\Serialization\Support\PurchaseOrder.cs" />
+    <Compile Include="RealWorld\Serialization\Test\SerializeInvoiceTest.cs" />
+    <Compile Include="RealWorld\Serialization\Test\SerializePurchaseOrderTest.cs" />
+    <Compile Include="RealWorld\Serialization\XmlProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
