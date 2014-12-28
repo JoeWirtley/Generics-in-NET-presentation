@@ -3,11 +3,11 @@
 namespace Generics.RealWorld.FinderTabs {
    internal static class ExampleUsage {
       public static bool ActivateView( IFinderTabs finderTabs, Guid idToActivate ) {
-         IChartDisplayView openChart;
-         if ( !finderTabs.ActivateViewMeetingCondition( chart => chart.ChartId == idToActivate, out openChart ) ) {
+         IChartDisplayView openChartView;
+         if ( !finderTabs.ActivateViewMeetingCondition( chart => chart.ChartId == idToActivate, out openChartView ) ) {
             return false;
          }
-         // Do something with View here
+         // Do something with view here
          return true;
       }
    }

@@ -1,8 +1,9 @@
-﻿namespace Generics.Basic {
+﻿// This file demonstrates a number of generic class, method, and constraint declarations
+// and serves no purpose other than that.  The code in this file is displayed on presentation slides.
+namespace Generics.Intermediate {
    // ReSharper disable UnusedTypeParameter
    // ReSharper disable EmptyConstructor
    // ReSharper disable UnusedVariable
-
 
    public class DemoDefault<T> {
       public T GetDefault() {

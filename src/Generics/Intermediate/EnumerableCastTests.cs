@@ -4,7 +4,7 @@ using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace Generics.Basic {
+namespace Generics.Intermediate {
    [TestFixture]
    public class EnumerableCastTests {
       [Test]
