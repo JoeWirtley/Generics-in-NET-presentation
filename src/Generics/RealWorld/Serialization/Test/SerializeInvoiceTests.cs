@@ -5,14 +5,14 @@ using NUnit.Framework;
 
 namespace Generics.RealWorld.Serialization.Test {
    [TestFixture]
-   public class SerializePurchaseOrderTest {
-      private string _purchaseOrderXml;
-      private PurchaseOrder _purchaseOrder;
+   public class SerializeInvoiceTests {
+      private string _invoiceXml;
+      private Invoice _invoice;
 
       [SetUp]
       public void BeforeEachTest() {
-         _purchaseOrder = new PurchaseOrder {
-            OrderNumber = "12345",
+         _invoice = new Invoice {
+            InvoiceNumber = "12345",
             ItemsOrders = new[] {
                new Item {ID = "1", ItemPrice = 10m},
                new Item {ID = "2", ItemPrice = 20m},
@@ -20,25 +20,25 @@ namespace Generics.RealWorld.Serialization.Test {
             }
          };
 
-         _purchaseOrderXml = @"<?xml version='1.0' encoding='utf-8'?>
-                               <PurchaseOrder>
+         _invoiceXml = @"<?xml version='1.0' encoding='utf-8'?>
+                               <Invoice>
                                   <ItemsOrders>
                                       <Item><ID>1</ID><ItemPrice>10</ItemPrice></Item>
                                       <Item><ID>2</ID><ItemPrice>20</ItemPrice></Item>
                                       <Item><ID>3</ID><ItemPrice>30</ItemPrice></Item>
                                   </ItemsOrders>
-                                  <OrderNumber>12345</OrderNumber>
-                               </PurchaseOrder>";
+                                  <InvoiceNumber>12345</InvoiceNumber>
+                               </Invoice>";
       }
 
       [Test]
       public void TestSerialize() {
          XmlProcessor processor = new XmlProcessor();
 
-         string poXml = processor.Serialize( _purchaseOrder );
+         string invoiceXml = processor.Serialize( _invoice );
 
-         poXml.Should().NotBeEmpty();
-         Debug.Write( poXml );
+         invoiceXml.Should().NotBeEmpty();
+         Debug.Write( invoiceXml );
          // Yes, this is pretty low bar for a passing unit test, but comparing XML is beyond the scope of this project
       }
 
@@ -46,11 +46,11 @@ namespace Generics.RealWorld.Serialization.Test {
       public void TestDeserialize() {
          XmlProcessor processor = new XmlProcessor();
 
-         PurchaseOrder po = processor.Deserialize<PurchaseOrder>( _purchaseOrderXml );
+         Invoice invoiceXml = processor.Deserialize<Invoice>( _invoiceXml );
 
-         po.Should().NotBeNull();
-         po.ItemsOrders.Should().NotBeEmpty().And.HaveCount( 3 );
-         po.OrderNumber.Should().Be( "12345" );
+         invoiceXml.Should().NotBeNull();
+         invoiceXml.ItemsOrders.Should().NotBeEmpty().And.HaveCount( 3 );
+         invoiceXml.InvoiceNumber.Should().Be( "12345" );
       }
    }
 }

@@ -59,12 +59,13 @@
     <Compile Include="Basic\LinkedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Basic\LinkedListTests.cs" />
-    <Compile Include="RealWorld\Filtering\Person.cs" />
-    <Compile Include="RealWorld\Filtering\PersonFilter.cs" />
+    <Compile Include="RealWorld\Filtering\Filter.cs" />
+    <Compile Include="RealWorld\Filtering\Support\Person.cs" />
+    <Compile Include="RealWorld\Filtering\Support\PersonFilter.cs" />
     <Compile Include="RealWorld\Filtering\PersonRepository.cs" />
-    <Compile Include="RealWorld\Filtering\Support.cs" />
-    <Compile Include="RealWorld\Filtering\FilteringTests.cs" />
-    <Compile Include="RealWorld\Filtering\WhereAndBuilder.cs" />
+    <Compile Include="RealWorld\Filtering\Support\Enums.cs" />
+    <Compile Include="RealWorld\Filtering\Test\FilteringTests.cs" />
+    <Compile Include="RealWorld\Filtering\Support\WhereAndBuilder.cs" />
     <Compile Include="RealWorld\FinderTabs\Support.cs" />
     <Compile Include="RealWorld\FinderTabs\FinderTabs.cs" />
     <Compile Include="RealWorld\FinderTabs\ExampleUsage.cs" />
@@ -72,8 +73,8 @@
     <Compile Include="RealWorld\Serialization\Support\Invoice.cs" />
     <Compile Include="RealWorld\Serialization\Support\Item.cs" />
     <Compile Include="RealWorld\Serialization\Support\PurchaseOrder.cs" />
-    <Compile Include="RealWorld\Serialization\Test\SerializeInvoiceTest.cs" />
-    <Compile Include="RealWorld\Serialization\Test\SerializePurchaseOrderTest.cs" />
+    <Compile Include="RealWorld\Serialization\Test\SerializeInvoiceTests.cs" />
+    <Compile Include="RealWorld\Serialization\Test\SerializePurchaseOrderTests.cs" />
     <Compile Include="RealWorld\Serialization\XmlProcessor.cs" />
   </ItemGroup>
   <ItemGroup>

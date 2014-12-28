@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Generics.RealWorld.Filtering {
+namespace Generics.RealWorld.Filtering.Support {
    public class PersonFilter {
       private readonly List<IntFilter> _ageFilters = new List<IntFilter>();
       private readonly List<StringFilter> _nameFilters = new List<StringFilter>();

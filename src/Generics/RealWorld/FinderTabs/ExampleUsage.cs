@@ -7,6 +7,7 @@ namespace Generics.RealWorld.FinderTabs {
          if ( !finderTabs.ActivateViewMeetingCondition( chart => chart.ChartId == idToActivate, out openChart ) ) {
             return false;
          }
+         // Do something with View here
          return true;
       }
    }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Generics.RealWorld.Filtering {
+namespace Generics.RealWorld.Filtering.Support {
    public class WhereAndBuilder<T> {
       private Expression<Func<T, bool>> _whereExpression;
 

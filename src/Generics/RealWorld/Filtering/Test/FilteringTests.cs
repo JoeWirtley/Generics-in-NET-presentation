@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
+using Generics.RealWorld.Filtering.Support;
 using NUnit.Framework;
 
-namespace Generics.RealWorld.Filtering {
+namespace Generics.RealWorld.Filtering.Test {
    [TestFixture]
    public class FilteringTests {
       private PersonRepository _repository;
