@@ -70,7 +70,7 @@
     <Compile Include="RealWorld\FinderTabs\Support.cs" />
     <Compile Include="RealWorld\FinderTabs\FinderTabs.cs" />
     <Compile Include="RealWorld\FinderTabs\ExampleUsage.cs" />
-    <Compile Include="Intermediate\UnboundedTests.cs" />
+    <Compile Include="Intermediate\UnconstrainedTests.cs" />
     <Compile Include="RealWorld\Chart\ChartBase.cs" />
     <Compile Include="RealWorld\Chart\MultiChart.cs" />
     <Compile Include="RealWorld\Chart\Statboard.cs" />

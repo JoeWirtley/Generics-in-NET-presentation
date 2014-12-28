@@ -4,11 +4,11 @@ using NUnit.Framework;
 
 namespace Generics.Intermediate {
    /// <summary>
-   /// These tests demonstrate some properties of unbounded generic types (generic types without any constraints).
+   /// These tests demonstrate some properties of generic types without any constraints.
    /// It also illustrates potential issue with comparison using the == operator for constrained generic types.
    /// </summary>
    [TestFixture]
-   public class UnboundedTests {
+   public class UnconstrainedTests {
       [Test]
       public void CanUseEqualOperatorWithClassConstraint() {
          // You can only use == to compare generics with a class constraint
