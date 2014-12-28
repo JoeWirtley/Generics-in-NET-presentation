@@ -59,6 +59,7 @@
     <Compile Include="Basic\LinkedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Basic\LinkedListTests.cs" />
+    <Compile Include="RealWorld\Chart\Support\IChartDefCommon.cs" />
     <Compile Include="RealWorld\Filtering\Filter.cs" />
     <Compile Include="RealWorld\Filtering\Support\Person.cs" />
     <Compile Include="RealWorld\Filtering\Support\PersonFilter.cs" />
@@ -70,6 +71,12 @@
     <Compile Include="RealWorld\FinderTabs\FinderTabs.cs" />
     <Compile Include="RealWorld\FinderTabs\ExampleUsage.cs" />
     <Compile Include="Basic\UnconstrainedTests.cs" />
+    <Compile Include="RealWorld\Chart\ChartBase.cs" />
+    <Compile Include="RealWorld\Chart\MultiChart.cs" />
+    <Compile Include="RealWorld\Chart\Statboard.cs" />
+    <Compile Include="RealWorld\Chart\Support\IChartSerializer.cs" />
+    <Compile Include="RealWorld\Chart\Support\MultichartDefinition.cs" />
+    <Compile Include="RealWorld\Chart\Support\StatboardDefinition.cs" />
     <Compile Include="RealWorld\Serialization\Support\Invoice.cs" />
     <Compile Include="RealWorld\Serialization\Support\Item.cs" />
     <Compile Include="RealWorld\Serialization\Support\PurchaseOrder.cs" />
