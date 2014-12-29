@@ -1,5 +1,9 @@
 ﻿// This file demonstrates a number of generic class, method, and constraint declarations
 // and serves no purpose other than that.  The code in this file is displayed on presentation slides.
+
+using System;
+using System.Collections.Generic;
+
 namespace Generics.Intermediate {
    // ReSharper disable UnusedTypeParameter
    // ReSharper disable EmptyConstructor
@@ -70,7 +74,23 @@ namespace Generics.Intermediate {
       public void NotInferred() {
          Test value = AnotherGenericMethod<Test>();
       }
+  }
 
+
+   public class CoContra {
+
+      public void Covariance() {
+         IEnumerable<String> strings = new List<String>();
+         IEnumerable<Object> objects = strings;
+      }
+
+   }
+
+   public class Reflection {
+      public void CreateGenericViaReflection() {
+         var stringList = typeof( List<> ).MakeGenericType( typeof( string ) );
+         
+      }
    }
 
    // ReSharper restore UnusedVariable
