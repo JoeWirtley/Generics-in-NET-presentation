@@ -12,7 +12,7 @@ namespace Generics.Basic {
       }
 
       [Test]
-      public void TestOneMember() {
+      public void TestOneMemberIntList() {
          LinkedList<int> list = new LinkedList<int> {42};
 
          list.Should().NotBeEmpty().And.HaveCount( 1 );
@@ -20,7 +20,7 @@ namespace Generics.Basic {
       }
 
       [Test]
-      public void TestTwoMembers() {
+      public void TestTwoMemberIntList() {
          LinkedList<int> list = new LinkedList<int> {42, 54};
 
          list.Should().NotBeEmpty().And.HaveCount( 2 );
@@ -28,12 +28,29 @@ namespace Generics.Basic {
       }
 
       [Test]
-      public void TestInsertMember() {
+      public void TestTwoMemberStringList() {
+         LinkedList<string> list = new LinkedList<string> { "42", "54" };
+
+         list.Should().NotBeEmpty().And.HaveCount( 2 );
+         list.Should().Equal( "42", "54" );
+      }
+
+      [Test]
+      public void TestInsertMemberInIntList() {
          LinkedList<int> list = new LinkedList<int> {42, 54};
          list.Insert( 21 );
 
          list.Should().NotBeEmpty().And.HaveCount( 3 );
          list.Should().Equal( 21, 42, 54 );
+      }
+
+      [Test]
+      public void TestInsertMemberInStringList() {
+         LinkedList<string> list = new LinkedList<string> { "42", "54" };
+         list.Insert( "21" );
+
+         list.Should().NotBeEmpty().And.HaveCount( 3 );
+         list.Should().Equal( "21", "42", "54" );
       }
 
       [Test]
