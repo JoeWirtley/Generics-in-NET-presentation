@@ -29,7 +29,7 @@ namespace Generics.Basic {
 
       [Test]
       public void TestTwoMemberStringList() {
-         LinkedList<string> list = new LinkedList<string> { "42", "54" };
+         LinkedList<string> list = new LinkedList<string> {"42", "54"};
 
          list.Should().NotBeEmpty().And.HaveCount( 2 );
          list.Should().Equal( "42", "54" );
@@ -46,7 +46,7 @@ namespace Generics.Basic {
 
       [Test]
       public void TestInsertMemberInStringList() {
-         LinkedList<string> list = new LinkedList<string> { "42", "54" };
+         LinkedList<string> list = new LinkedList<string> {"42", "54"};
          list.Insert( "21" );
 
          list.Should().NotBeEmpty().And.HaveCount( 3 );

@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Generics.Intermediate {
    // ReSharper disable UnusedTypeParameter
@@ -57,9 +58,6 @@ namespace Generics.Intermediate {
 
 
    public class Test {
-      public Test() {
-      }
-
       public void SomeGenericMethod<T>( T someParameter ) {
       }
 
@@ -88,10 +86,29 @@ namespace Generics.Intermediate {
 
    public class Reflection {
       public void CreateGenericViaReflection() {
-         var stringList = typeof( List<> ).MakeGenericType( typeof( string ) );
+         Type stringListType = typeof( List<> ).MakeGenericType( typeof( string ) );
          
       }
    }
+
+   public class TypeCasting {
+      public void SignYouShouldBeUsingAGeneric( object myObject ) {
+         IFoo foo = ( IFoo ) myObject;
+                                 
+         IFoo fooToo = myObject as IFoo;
+      }
+   }
+
+   public class AnotherTest {
+      public bool IsViewOpenMeetingCondition<T>( Func<T, bool> condition ) {
+         return GetViewsOfType<T>().Any( condition );
+      }
+
+      private IEnumerable<T> GetViewsOfType<T>() {
+         throw new NotImplementedException();
+      }
+   }
+
 
    // ReSharper restore UnusedVariable
    // ReSharper restore EmptyConstructor
