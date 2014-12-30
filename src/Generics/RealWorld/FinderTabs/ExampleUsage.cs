@@ -17,7 +17,7 @@ namespace Generics.RealWorld.FinderTabs {
          return true;
       }
 
-      public bool ActivateView( IFinderTabs finderTabs, Guid idToActivate ) {
+      public bool ActivateView( Guid idToActivate ) {
          return _finderTabs.ActivateViewMeetingCondition<IChartDisplayView>( chart => chart.ChartId == idToActivate );
       }
    }
