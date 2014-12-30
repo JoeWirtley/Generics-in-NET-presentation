@@ -66,7 +66,7 @@
     <Compile Include="RealWorld\Filtering\PersonRepository.cs" />
     <Compile Include="RealWorld\Filtering\Support\Enums.cs" />
     <Compile Include="RealWorld\Filtering\Test\FilteringTests.cs" />
-    <Compile Include="RealWorld\Filtering\Support\WhereAndBuilder.cs" />
+    <Compile Include="RealWorld\Filtering\Support\WhereClauseBuilder.cs" />
     <Compile Include="RealWorld\FinderTabs\Support.cs" />
     <Compile Include="RealWorld\FinderTabs\FinderTabs.cs" />
     <Compile Include="RealWorld\FinderTabs\ExampleUsage.cs" />

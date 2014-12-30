@@ -5,7 +5,15 @@ namespace Generics.RealWorld.Filtering.Support {
       private readonly List<IntFilter> _ageFilters = new List<IntFilter>();
       private readonly List<StringFilter> _nameFilters = new List<StringFilter>();
 
-      public PersonFilter( AndOr andOr = AndOr.And ) {
+      public static PersonFilter And() {
+         return new PersonFilter( AndOr.And );
+      }
+
+      public static PersonFilter Or() {
+         return new PersonFilter( AndOr.Or );
+      }
+
+      private PersonFilter( AndOr andOr) {
          AndOr = andOr;
       }
 

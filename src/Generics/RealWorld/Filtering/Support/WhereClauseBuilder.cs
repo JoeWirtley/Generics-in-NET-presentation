@@ -4,10 +4,14 @@ using System.Linq;
 using System.Linq.Expressions;
 
 namespace Generics.RealWorld.Filtering.Support {
-   public class WhereAndBuilder<T> {
-      private Expression<Func<T, bool>> _whereExpression;
+   public delegate Expression CombineUsing( Expression left, Expression right );
 
-      public WhereAndBuilder( IEnumerable<Expression<Func<T, bool>>> clauses ) {
+   public abstract class WhereClauseBuilder<T> {
+      private Expression<Func<T, bool>> _whereExpression;
+      private readonly CombineUsing _combineUsing;
+
+      protected WhereClauseBuilder( IEnumerable<Expression<Func<T, bool>>> clauses, CombineUsing combineUsing ) {
+         _combineUsing = combineUsing;
          var headAndTail = clauses.GetEnumerator().HeadAndTail();
          _whereExpression = headAndTail.Head;
 
@@ -19,7 +23,7 @@ namespace Generics.RealWorld.Filtering.Support {
       private void Add( Expression<Func<T, bool>> expression ) {
          var invokedExpr = Expression.Invoke( expression, _whereExpression.Parameters.Cast<Expression>() );
          _whereExpression = Expression.Lambda<Func<T, bool>>
-            ( Expression.AndAlso( _whereExpression.Body, invokedExpr ), _whereExpression.Parameters );
+            ( _combineUsing( _whereExpression.Body, invokedExpr ), _whereExpression.Parameters );
       }
 
       public Expression<Func<T, bool>> WhereExpression {
@@ -27,6 +31,18 @@ namespace Generics.RealWorld.Filtering.Support {
       }
    }
 
+
+   public class WhereClauseAndBuilder<T>: WhereClauseBuilder<T> {
+      public WhereClauseAndBuilder( IEnumerable<Expression<Func<T, bool>>> clauses )
+         : base( clauses, Expression.AndAlso ) {
+      }
+   }
+
+   public class WhereClauseOrBuilder<T>:WhereClauseBuilder<T> {
+      public WhereClauseOrBuilder( IEnumerable<Expression<Func<T, bool>>> clauses )
+         : base( clauses, Expression.OrElse ) {
+      }
+   }
 
    internal class HeadAndTail<T> {
       public readonly T Head;

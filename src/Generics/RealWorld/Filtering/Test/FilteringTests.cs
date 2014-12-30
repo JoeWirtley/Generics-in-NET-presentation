@@ -25,7 +25,7 @@ namespace Generics.RealWorld.Filtering.Test {
 
       [Test]
       public void NameContainsSShouldReturnThree() {
-         PersonFilter filter = new PersonFilter().ForNameContains( "s" );
+         PersonFilter filter = PersonFilter.And().ForNameContains( "s" );
 
          IEnumerable<Person> people = _repository.GetFilteredPeople( filter );
 
@@ -35,7 +35,7 @@ namespace Generics.RealWorld.Filtering.Test {
 
       [Test]
       public void AgeGreaterThan30ShouldReturnThree() {
-         PersonFilter filter = new PersonFilter().ForAgeGreaterThan( 30 );
+         PersonFilter filter = PersonFilter.And().ForAgeGreaterThan( 30 );
 
          IEnumerable<Person> people = _repository.GetFilteredPeople( filter );
 
@@ -45,7 +45,7 @@ namespace Generics.RealWorld.Filtering.Test {
 
       [Test]
       public void AgeGreaterThan26AndLessThan32ShouldReturnTwo() {
-         PersonFilter filter = new PersonFilter().ForAgeGreaterThan( 26 ).ForAgeLessThan( 32 );
+         PersonFilter filter = PersonFilter.And().ForAgeGreaterThan( 26 ).ForAgeLessThan( 32 );
 
          IEnumerable<Person> people = _repository.GetFilteredPeople( filter );
 
@@ -54,8 +54,18 @@ namespace Generics.RealWorld.Filtering.Test {
       }
 
       [Test]
+      public void AgeGreaterThan32OrLessThan26ShouldReturnFour() {
+         PersonFilter filter = PersonFilter.Or().ForAgeGreaterThan( 32 ).ForAgeLessThan( 26 );
+
+         IEnumerable<Person> people = _repository.GetFilteredPeople( filter );
+
+         people.Should().NotBeEmpty().And.HaveCount( 4 );
+         people.Select( person => person.Name ).Should().Equal( "John", "Jake", "Cheryl", "Lindsey" );
+      }
+
+      [Test]
       public void AgeGreaterThan26AndLessThan32AndNameContainsUShouldReturnOne() {
-         PersonFilter filter = new PersonFilter().ForAgeGreaterThan( 26 ).ForAgeLessThan( 32 ).ForNameContains( "u" );
+         PersonFilter filter = PersonFilter.And().ForAgeGreaterThan( 26 ).ForAgeLessThan( 32 ).ForNameContains( "u" );
 
          IEnumerable<Person> people = _repository.GetFilteredPeople( filter );
 

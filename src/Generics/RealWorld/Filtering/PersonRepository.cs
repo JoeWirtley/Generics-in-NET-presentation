@@ -15,7 +15,12 @@ namespace Generics.RealWorld.Filtering {
       public Person[] GetFilteredPeople( PersonFilter filter ) {
          IEnumerable<Expression<Func<Person, bool>>> clauses = CreateWhereClausesFromFilter( filter );
 
-         Expression<Func<Person, bool>> whereClause = new WhereAndBuilder<Person>( clauses ).WhereExpression;
+         Expression<Func<Person, bool>> whereClause;
+         if ( filter.AndOr == AndOr.Or ) {
+            whereClause = new WhereClauseOrBuilder<Person>( clauses ).WhereExpression;
+         } else {
+            whereClause = new WhereClauseAndBuilder<Person>( clauses ).WhereExpression;
+         }
 
          return _people.AsQueryable().Where( whereClause ).ToArray();
       }
@@ -27,9 +32,9 @@ namespace Generics.RealWorld.Filtering {
             foreach ( StringFilter nameFilter in filter.NameFilters ) {
                StringFilter localFilter = nameFilter;
                if ( nameFilter.Operator == Operator.Equals ) {
-                  clauses.Add( person => person.Name.ToLower() == localFilter.Value.ToLower() );
+                  clauses.Add( person => person.Name.ToLowerInvariant() == localFilter.Value.ToLowerInvariant() );
                } else if ( nameFilter.Operator == Operator.Contains ) {
-                  clauses.Add( person => person.Name.ToLower().Contains( localFilter.Value.ToLower() ) );
+                  clauses.Add( person => person.Name.ToLowerInvariant().Contains( localFilter.Value.ToLowerInvariant() ) );
                }
             }
          }
@@ -38,8 +43,8 @@ namespace Generics.RealWorld.Filtering {
                IntFilter localFilter = ageFilter;
                if ( ageFilter.Operator == Operator.Equals ) {
                   clauses.Add( person => person.Age == localFilter.Value );
-               } else if ( ageFilter.Operator == Operator.GreaterThan) {
-                  clauses.Add( person => person.Age >  localFilter.Value );
+               } else if ( ageFilter.Operator == Operator.GreaterThan ) {
+                  clauses.Add( person => person.Age > localFilter.Value );
                } else if ( ageFilter.Operator == Operator.LessThan ) {
                   clauses.Add( person => person.Age < localFilter.Value );
                }
