@@ -13,8 +13,8 @@ namespace Generics.RealWorld.FinderTabs {
    // These interfaces stand in for Prism so that the FinderTabs example will compile.
    public interface IRegion {
       void Activate( object view );
-      void Add( object view, string toString, bool createRegionManagerScope );
       IEnumerable<object> Views { get; }
+      void Add( object view );
    }
 
    public interface IRegionManager {

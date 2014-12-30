@@ -18,6 +18,11 @@ namespace Generics.RealWorld.FinderTabs {
          return TabsRegion.Views.Where( o => o is T ).Cast<T>();
       }
 
+      public void AddView( object view ) {
+         TabsRegion.Add( view );
+         TabsRegion.Activate( view );
+      }
+
       public bool ActivateViewMeetingCondition<T>( Func<T, bool> condition, out T openChart ) where T:class {
          T view = GetViewsOfType<T>().FirstOrDefault( condition );
          if ( view != null ) {
