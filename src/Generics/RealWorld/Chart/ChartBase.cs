@@ -1,7 +1,7 @@
 ﻿using Generics.RealWorld.Chart.Support;
 
 namespace Generics.RealWorld.Chart {
-   public abstract class ChartBase<TChart, TChartDefinition>
+   public abstract class ChartBase<TChart, TChartDefinition>: VisualObject
       where TChart: ChartBase<TChart, TChartDefinition>, new()
       where TChartDefinition: IChartDefCommon {
 

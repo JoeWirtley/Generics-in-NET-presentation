@@ -60,6 +60,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Basic\LinkedListTests.cs" />
     <Compile Include="RealWorld\Chart\Support\IChartDefCommon.cs" />
+    <Compile Include="RealWorld\Chart\Support\VisualObject.cs" />
+    <Compile Include="RealWorld\Chart\Test\ChartTests.cs" />
     <Compile Include="RealWorld\Filtering\Filter.cs" />
     <Compile Include="RealWorld\Filtering\Support\Person.cs" />
     <Compile Include="RealWorld\Filtering\Support\PersonFilter.cs" />
