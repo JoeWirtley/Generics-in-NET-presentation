@@ -1,13 +1,17 @@
 ﻿using Generics.RealWorld.Chart.Support;
 
 namespace Generics.RealWorld.Chart {
-   public abstract class ChartBase< TChart, TChartDefinition >
-      where TChart : ChartBase<TChart, TChartDefinition>, new() 
-      where TChartDefinition : IChartDefCommon {
+   public abstract class ChartBase<TChart, TChartDefinition>
+      where TChart: ChartBase<TChart, TChartDefinition>, new()
+      where TChartDefinition: IChartDefCommon {
+
+      protected ChartBase( TChartDefinition chartDefinition ) {
+         ChartDefinition = chartDefinition;
+      }
 
       public abstract string Serialize( IChartSerializer chartSerializer );
 
-      public TChartDefinition ChartDefinition { get; set; }
+      public TChartDefinition ChartDefinition { get; private set; }
 
       public string Name {
          get { return ChartDefinition.Name; }

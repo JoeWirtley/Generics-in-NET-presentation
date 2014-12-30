@@ -2,11 +2,10 @@
 
 namespace Generics.RealWorld.Chart {
    public class MultiChart: ChartBase<MultiChart, MultichartDefinition> {
-      public MultiChart() {
+      public MultiChart(): base( null ) {
       }
 
-      public MultiChart( MultichartDefinition chartDef ) {
-         ChartDefinition = chartDef;
+      public MultiChart( MultichartDefinition chartDef ): base( chartDef ) {
       }
 
       public override string Serialize( IChartSerializer chartSerializer ) {

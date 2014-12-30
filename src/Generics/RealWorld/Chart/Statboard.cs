@@ -2,11 +2,10 @@
 
 namespace Generics.RealWorld.Chart {
    public class Statboard: ChartBase<Statboard, StatboardDefinition> {
-      public Statboard() {
+      public Statboard(): base( null ) {
       }
 
-      public Statboard( StatboardDefinition chartDef ) {
-         ChartDefinition = chartDef;
+      public Statboard( StatboardDefinition chartDef ): base( chartDef ) {
       }
 
       public override string Serialize( IChartSerializer chartSerializer ) {
