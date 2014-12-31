@@ -10,6 +10,7 @@ namespace Generics.Intermediate {
    // ReSharper disable UnusedTypeParameter
    // ReSharper disable EmptyConstructor
    // ReSharper disable UnusedVariable
+   // ReSharper disable UnusedVariable.Compiler
 
    public class DemoDefault<T> {
       public T GetDefault() {
@@ -18,11 +19,22 @@ namespace Generics.Intermediate {
    }
 
    public class ReferenceTypeClass<T> where T: class {
+      public void Usages() {
+         ReferenceTypeClass<Foo> aFoo;
+         ReferenceTypeClass<IFoo> anIFoo;
+         ReferenceTypeClass<string> aString;
+         ReferenceTypeClass<int> anInt; // Invalid
+      }
    }
+
 
    public class ValueTypeClass<T> where T: struct {
+      public void Usages() {
+         ValueTypeClass<int> anInt; 
+         ValueTypeClass<double> aDouble; 
+         ValueTypeClass<string> aString; // Invalid
+      }
    }
-
 
    public interface IFoo {
    }
@@ -110,6 +122,16 @@ namespace Generics.Intermediate {
       }
    }
 
+
+   public class MultipleTypes<T1, T2> where T1: T2 {
+      
+   }
+
+   public class TestSubclass: MultipleTypes<Foo, IFoo> {
+      
+   }
+
+   // ReSharper restore UnusedVariable.Compiler
    // ReSharper restore UnusedVariable
    // ReSharper restore EmptyConstructor
    // ReSharper restore UnusedTypeParameter
