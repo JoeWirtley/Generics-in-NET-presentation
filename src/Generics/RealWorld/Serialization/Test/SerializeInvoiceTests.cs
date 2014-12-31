@@ -43,10 +43,28 @@ namespace Generics.RealWorld.Serialization.Test {
       }
 
       [Test]
+      public void TestSerializeUsingExtensionMethod() {
+         string invoiceXml = _invoice.Serialize();
+
+         invoiceXml.Should().NotBeEmpty();
+         Debug.Write( invoiceXml );
+         // Yes, this is pretty low bar for a passing unit test, but comparing XML is beyond the scope of this project
+      }
+
+      [Test]
       public void TestDeserialize() {
          XmlProcessor processor = new XmlProcessor();
 
          Invoice invoiceXml = processor.Deserialize<Invoice>( _invoiceXml );
+
+         invoiceXml.Should().NotBeNull();
+         invoiceXml.ItemsOrders.Should().NotBeEmpty().And.HaveCount( 3 );
+         invoiceXml.InvoiceNumber.Should().Be( "12345" );
+      }
+
+      [Test]
+      public void TestDeserializeUsingExtensionMethod() {
+         Invoice invoiceXml = _invoiceXml.Deserialize<Invoice>();
 
          invoiceXml.Should().NotBeNull();
          invoiceXml.ItemsOrders.Should().NotBeEmpty().And.HaveCount( 3 );

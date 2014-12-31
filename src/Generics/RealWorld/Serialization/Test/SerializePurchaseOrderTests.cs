@@ -43,6 +43,15 @@ namespace Generics.RealWorld.Serialization.Test {
       }
 
       [Test]
+      public void TestSerializeUsingExtensionMethod() {
+         string purchaseOrderXml = _purchaseOrder.Serialize();
+
+         purchaseOrderXml.Should().NotBeEmpty();
+         Debug.Write( purchaseOrderXml );
+         // Yes, this is pretty low bar for a passing unit test, but comparing XML is beyond the scope of this project
+      }
+
+      [Test]
       public void TestDeserialize() {
          XmlProcessor processor = new XmlProcessor();
 
@@ -51,6 +60,15 @@ namespace Generics.RealWorld.Serialization.Test {
          po.Should().NotBeNull();
          po.ItemsOrders.Should().NotBeEmpty().And.HaveCount( 3 );
          po.OrderNumber.Should().Be( "12345" );
+      }
+
+      [Test]
+      public void TestDeserializeUsingExtensionMethod() {
+         PurchaseOrder purchaseOrderXml = _purchaseOrderXml.Deserialize<PurchaseOrder>();
+
+         purchaseOrderXml.Should().NotBeNull();
+         purchaseOrderXml.ItemsOrders.Should().NotBeEmpty().And.HaveCount( 3 );
+         purchaseOrderXml.OrderNumber.Should().Be( "12345" );
       }
    }
 }

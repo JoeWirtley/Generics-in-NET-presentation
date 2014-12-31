@@ -79,6 +79,7 @@
     <Compile Include="RealWorld\Chart\Support\IChartSerializer.cs" />
     <Compile Include="RealWorld\Chart\Support\MultichartDefinition.cs" />
     <Compile Include="RealWorld\Chart\Support\StatboardDefinition.cs" />
+    <Compile Include="RealWorld\Serialization\SerializeExtensions.cs" />
     <Compile Include="RealWorld\Serialization\Support\Invoice.cs" />
     <Compile Include="RealWorld\Serialization\Support\Item.cs" />
     <Compile Include="RealWorld\Serialization\Support\PurchaseOrder.cs" />
