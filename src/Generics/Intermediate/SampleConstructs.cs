@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Generics.RealWorld.Serialization.Test;
 
 namespace Generics.Intermediate {
    // ReSharper disable UnusedTypeParameter
@@ -93,9 +94,9 @@ namespace Generics.Intermediate {
 
    public class TypeCasting {
       public void SignYouShouldBeUsingAGeneric( object myObject ) {
-         IFoo foo = ( IFoo ) myObject;
+         Foo foo = ( Foo ) myObject;
                                  
-         IFoo fooToo = myObject as IFoo;
+         Foo fooToo = myObject as Foo;
       }
    }
 
@@ -108,7 +109,6 @@ namespace Generics.Intermediate {
          throw new NotImplementedException();
       }
    }
-
 
    // ReSharper restore UnusedVariable
    // ReSharper restore EmptyConstructor
