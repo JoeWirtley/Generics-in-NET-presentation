@@ -11,6 +11,11 @@ namespace Generics.RealWorld.Chart {
 
       public abstract string Serialize( IChartSerializer chartSerializer );
 
+      // This doesn't work although I'd like it to
+      //public string Serialize( IChartSerializer chartSerializer ) {
+      //   return chartSerializer.Serialize( ChartDefinition );
+      //}
+
       public TChartDefinition ChartDefinition { get; private set; }
 
       public string Name {
