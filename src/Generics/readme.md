@@ -1,4 +1,5 @@
-﻿#Generics
+﻿Generics
+========================
 
 This project contains three folders with examples from the Generics in 
 .NET presentation:
