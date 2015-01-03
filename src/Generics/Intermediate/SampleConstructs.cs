@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Generics.RealWorld.Serialization.Test;
 
 namespace Generics.Intermediate {
    // ReSharper disable UnusedTypeParameter
@@ -23,7 +22,7 @@ namespace Generics.Intermediate {
          ReferenceTypeClass<Foo> aFoo;
          ReferenceTypeClass<IFoo> anIFoo;
          ReferenceTypeClass<string> aString;
-         ReferenceTypeClass<int> anInt; // Invalid
+         //ReferenceTypeClass<int> anInt; // Invalid
       }
    }
 
@@ -32,7 +31,7 @@ namespace Generics.Intermediate {
       public void Usages() {
          ValueTypeClass<int> anInt; 
          ValueTypeClass<double> aDouble; 
-         ValueTypeClass<string> aString; // Invalid
+         //ValueTypeClass<string> aString; // Invalid
       }
    }
 
