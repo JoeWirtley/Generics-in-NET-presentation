@@ -1,4 +1,4 @@
-﻿Generics
+﻿Project
 ========================
 
 This project contains three folders with examples from the Generics in 
