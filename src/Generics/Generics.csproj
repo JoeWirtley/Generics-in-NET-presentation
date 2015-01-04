@@ -98,6 +98,8 @@
     <None Include="RealWorld\Chart\Before\readme.md" />
     <None Include="RealWorld\Chart\readme.md" />
     <None Include="RealWorld\Filtering\readme.md" />
+    <None Include="RealWorld\FinderTabs\readme.md" />
+    <None Include="RealWorld\Serialization\readme.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
