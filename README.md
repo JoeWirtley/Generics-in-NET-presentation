@@ -7,3 +7,5 @@ Refer to this [bit.ly bundle]( http://bit.ly/GEN-Bundle) for some links to usefu
 
 Please contact me if you have any questions or comments about the slides or code. 
 
+For an in-depth treatment of Generics in .NET, please check out the screencast I created for O'Reilly at http://bit.ly/GenericsScreencast.  This is a three hour treatment of generics in .NET which allows for inclusion of more material and in depth review of real world examples.
+
