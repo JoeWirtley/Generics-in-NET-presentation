@@ -13,7 +13,7 @@ namespace Generics.Basic {
 
       [Test]
       public void TestOneMemberIntList() {
-         LinkedList<int> list = new LinkedList<int> {42};
+         LinkedList<int> list = new LinkedList<int>( 42 );
 
          list.Should().NotBeEmpty().And.HaveCount( 1 );
          list.Should().Equal( 42 );
@@ -21,7 +21,7 @@ namespace Generics.Basic {
 
       [Test]
       public void TestTwoMemberIntList() {
-         LinkedList<int> list = new LinkedList<int> {42, 54};
+         LinkedList<int> list = new LinkedList<int>( 42, 54 );
 
          list.Should().NotBeEmpty().And.HaveCount( 2 );
          list.Should().Equal( 42, 54 );
