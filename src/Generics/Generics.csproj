@@ -82,6 +82,14 @@
     <Compile Include="RealWorld\Chart\Support\IChartSerializer.cs" />
     <Compile Include="RealWorld\Chart\Support\MultichartDefinition.cs" />
     <Compile Include="RealWorld\Chart\Support\StatboardDefinition.cs" />
+    <Compile Include="RealWorld\ModalDialogInitialization\Before\BeforeModalDialogService.cs" />
+    <Compile Include="RealWorld\ModalDialogInitialization\Before\BeforeModalView.cs" />
+    <Compile Include="RealWorld\ModalDialogInitialization\ModalDialogService.cs" />
+    <Compile Include="RealWorld\ModalDialogInitialization\ModalView.cs" />
+    <Compile Include="RealWorld\ModalDialogInitialization\Support\Container.cs" />
+    <Compile Include="RealWorld\ModalDialogInitialization\Support\IView.cs" />
+    <Compile Include="RealWorld\ModalDialogInitialization\Support\MockPrism.cs" />
+    <Compile Include="RealWorld\ModalDialogInitialization\Test\ModalDialogTests.cs" />
     <Compile Include="RealWorld\Serialization\Before\XmlProcessor.cs" />
     <Compile Include="RealWorld\Serialization\SerializeExtensions.cs" />
     <Compile Include="RealWorld\Serialization\Support\Invoice.cs" />
